@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>完成全选全不选和反选</title>
+	</head>
+	<script type="text/javascript">
+		
+		function selectAll(){
+				var checkEle = document.getElementsByClassName("xuhao");
+				for (var i = 0;i<checkEle.length; i++) {
+					checkEle[i].checked = true ;
+				}
+				
+		}
+		function removeAll(){
+				var checkEle = document.getElementsByClassName("xuhao");
+				for (var i = 0;i<checkEle.length; i++) {
+					checkEle[i].checked = false ;
+				}
+				
+		}
+		function inverseAll(){
+				var checkEle = document.getElementsByClassName("xuhao");
+				for (var i = 0;i<checkEle.length; i++) {
+			
+					checkEle[i].checked = !checkEle[i].checked ;
+				}
+				
+		}
+	</script>
+	<body>
+		<table border="1" width="500px" height="200px" align="center">
+			<tr>
+				<td><input type="checkbox" class="xuhao" /></td>
+				<td>1</td>
+				<td>手机数码</td>
+				<td>手机数码类商品</td>
+				<td>
+					<a href="#">修改</a>|
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="xuhao"/></td>
+				<td>2</td>
+				<td>电脑办公</td>
+				<td>电脑办公类商品</td>
+				<td>
+					<a href="#">修改</a>|
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="xuhao"/></td>
+				<td>3</td>
+				<td>鞋靴箱包</td>
+				<td>鞋靴箱包类商品</td>
+				<td>
+					<a href="#">修改</a>|
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="xuhao"/></td>
+				<td>4</td>
+				<td>家居饰品</td>
+				<td>家居饰品类商品</td>
+				<td>
+					<a href="#">修改</a>|
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" align="center">
+				<input type="button" value="全选" onclick="selectAll()" />
+				<input type="button" value="全不选" onclick="removeAll()" />
+				<input type="button" value="反选" onclick="inverseAll()" />
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
