@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>省市二级联动</title>
+	</head>
+	<script type="text/javascript">
+		function selectCity(index){
+			var cities = new Array(4);
+			cities[0] = new Array("东城区","西城区","宣武区","朝阳区");
+			cities[1] = new Array("黄浦区","徐汇区","长宁区","静安区");
+			cities[2] = new Array("济南市","青岛市","淄博市","枣庄市");
+			cities[3] = new Array("石家庄市","唐山市","秦皇岛市","邯郸市");
+			
+			var cityEle = document.getElementById("cityid");
+			//清空第二个下拉列表的option内容
+			cityEle.options.length = 0;
+			
+			for (var i = 0;i < cities[index].length;i++) {
+				//创建option元素节点
+				var optionNode = document.createElement("option");
+				//创建城市的文本节点
+				var textNode = document.createTextNode(cities[index][i]);
+				//将城市的文本节点添加到option元素节点
+				optionNode.appendChild(textNode);
+				//将option元素节点添加到第二个下拉列表中去
+				cityEle.appendChild(optionNode);
+			}				
+		}
+	</script>
+	<body >
+		<div align="center" >
+			<select id="proid" onchange="selectCity(this.value)">
+				<option>--请选择--</option>
+				<option value="0">北京市</option>
+				<option value="1">上海市</option>
+				<option value="2">山东省</option>
+				<option value="3">河北省</option>
+			</select>
+			<select id="cityid" style="width: 80px;">
+				<option>--请选择--</option>
+			</select>
+		</div>
+
+	</body>
+
+</html>
