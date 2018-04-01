@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>左右选择</title>
+	</head>
+	<style type="text/css">
+		input{
+			width: 50px;
+		}
+		select{
+			width: 200px;
+			
+		}
+	</style>
+	<script type="text/javascript">
+		
+		function oneToRight(){
+			//1.获取左边的select
+			var selLEle = document.getElementById("leftSelect");
+			//2.获取右边的select
+			var selREle = document.getElementById("rightSelect");
+			//3.判断是否选中
+			
+			for (var i = 0 ;i < selLEle.childNodes.length; i++) {
+				if(selLEle.childNodes[i].selected){
+					selLEle.childNodes[i].selected = false;
+					selREle.appendChild(selLEle.childNodes[i]);
+					break;
+				}
+			}
+			
+		}
+		function manyToRight(){
+			//1.获取左边的select
+			var selLEle = document.getElementById("leftSelect");
+			//2.获取右边的select
+			var selREle = document.getElementById("rightSelect");
+			//3.判断是否选中
+			
+			for (var i = 0 ;i < selLEle.childNodes.length; i++) {
+				if(selLEle.childNodes[i].selected){
+					selLEle.childNodes[i].selected = false;
+					selREle.appendChild(selLEle.childNodes[i]);
+				}
+			}
+			
+		}
+		function allToRight(){
+			//1.获取左边的select
+			var selLEle = document.getElementById("leftSelect");
+			//2.获取右边的select
+			var selREle = document.getElementById("rightSelect");
+			
+			for (var i = 0 ;i < selLEle.childNodes.length; ) {
+					selREle.appendChild(selLEle.childNodes[i]);
+			}
+			
+		}
+		function oneToLeft(){
+			//1.获取左边的select
+			var selLEle = document.getElementById("leftSelect");
+			//2.获取右边的select
+			var selREle = document.getElementById("rightSelect");
+			//3.判断是否选中
+			
+			for (var i = 0 ;i < selREle.childNodes.length; i++) {
+				if(selREle.childNodes[i].selected){
+					selREle.childNodes[i].selected = false;
+					selLEle.appendChild(selREle.childNodes[i]);
+					break;
+				}
+			}
+			
+		}
+		function manyToLeft(){
+			//1.获取左边的select
+			var selLEle = document.getElementById("leftSelect");
+			//2.获取右边的select
+			var selREle = document.getElementById("rightSelect");
+			//3.判断是否选中
+			
+			for (var i = 0 ;i < selREle.childNodes.length; i++) {
+				if(selREle.childNodes[i].selected){
+					selREle.childNodes[i].selected = false;
+					selLEle.appendChild(selREle.childNodes[i]);
+				}
+			}
+			
+		}
+		function allToLeft(){
+			//1.获取左边的select
+			var selLEle = document.getElementById("leftSelect");
+			//2.获取右边的select
+			var selREle = document.getElementById("rightSelect");
+			//3.判断是否选中
+			
+			for (var i = 0 ;i < selREle.childNodes.length; ) {
+				selLEle.appendChild(selREle.childNodes[i]);
+			}
+			
+		}
+	</script>
+	<body>
+		<table align="center">
+			<tr>
+				<td>
+					<select id="leftSelect" size="6" multiple="multiple">
+						<option>北京</option>
+						<option>天津</option>
+						<option>上海</option>
+					</select>
+				</td>
+				<td>
+					<input type="button" value=">" onclick="oneToRight()"/> <br />
+					<input type="button" value=">>" onclick="manyToRight()"/> <br />
+					<input type="button" value=">>>" onclick="allToRight()"/> <br />
+					
+					<input type="button" value="<" onclick="oneToLeft()"/> <br />
+					<input type="button" value="<<" onclick="manyToLeft()"/> <br />
+					<input type="button" value="<<" onclick="allToLeft()"/> <br />
+				</td>
+				<td>
+					<select id="rightSelect" size="6" multiple="multiple">
+						<option>广州</option>
+						<option>深圳</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
