@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>使用jQuery完成省市二级联动</title>
+	</head>
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script>
+		$(function(){
+			var cities = new Array(4);
+			cities[0] = new Array("东城区","西城区","宣武区","朝阳区");
+			cities[1] = new Array("黄浦区","徐汇区","长宁区","静安区");
+			cities[2] = new Array("济南市","青岛市","淄博市","枣庄市");
+			cities[3] = new Array("石家庄市","唐山市","秦皇岛市","邯郸市");
+			
+			$("#proid").change(function(){
+				$("#cityid").empty();
+				//1.获取用户选择的省份代码
+				var val = this.value;
+				//2.遍历选中省份的城市
+				$.each(cities,function(i,m){
+					if(val==i){
+						$.each(cities[i], function(j,n) {
+							//3.创建文本节点
+							var textNode = document.createTextNode(n);
+							//4.创建option节点
+							var optionNode = document.createElement("option");
+							//5.将文本节点加到option中去
+							$(optionNode).append(textNode);
+							//6.将option节点加到第二个下拉列表
+							$(optionNode).appendTo($("#cityid"));
+						});
+					}
+				});
+			});
+		});
+	</script>
+	<body >
+		<div align="center" >
+			<select id="proid" onchange="selectCity(this.value)">
+				<option>--请选择--</option>
+				<option value="0">北京市</option>
+				<option value="1">上海市</option>
+				<option value="2">山东省</option>
+				<option value="3">河北省</option>
+			</select>
+			<select id="cityid" style="width: 80px;">
+				<option>--请选择--</option>
+			</select>
+		</div>
+
+	</body>
+
+</html>
